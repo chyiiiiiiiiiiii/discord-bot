@@ -1,0 +1,8 @@
+export const BOT_TOKEN =
+  process?.env?.BOT_TOKEN ??
+  "OTY2OTE1MjM3MDY2NDY1Mjkw.YmIr_A.dcZCVCN3I58WDQ76iWZ8i56HEX7";
+export const BOT_OWNER_ID = process?.env?.BOT_OWNER_ID ?? "196509271238639618";
+export const LOG_CHANNEL_ID =
+  process?.env?.LOG_CHANNEL_ID ?? "966921902536933406";
+export const VERIFY_CHANNEL_ID =
+  process?.env?.VERIFY_CHANNEL_ID ?? "968025785854210048";
