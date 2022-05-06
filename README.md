@@ -1,7 +1,7 @@
 # discord-bot
 
 ## Introduction
-實作Discord機器人，完成
+實作Discord機器人，發送訊息與用戶互動，接著提供第三方驗證流程，最後幫用戶設置新的角色權限，簡單幫NFT社群開發自己的功能機器人，提升社群價值
 
 ## Function Implement
 - [x] 發送文字訊息
