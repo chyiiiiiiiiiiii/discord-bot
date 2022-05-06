@@ -1,26 +1,40 @@
 # discord-bot
 
 ## Introduction
+實作Discord機器人，完成
+
+## Function Implement
+- [x] 發送文字訊息
+- [x] 發送命令訊息
+- [x] 發送豐富訊息(多內容)
+- [x] 訊息附加按鈕
+- [x] 創建角色
+- [x] 賦予用戶角色
+- [x] 與Server溝通，監聽事件觸發
 
 ## Run
 
-編譯
+1. compile
 
 ```
 tsc src/bot.ts
 ```
 
-執行
+2. excute
 
 ```
 node src/bot.js
 ```
 
-一起
+or combine
 
 ```
 tsc src/bot.ts & node src/bot.js
 ```
+## Package
+- typescript
+- eris
+- express
 
 ## About
 
