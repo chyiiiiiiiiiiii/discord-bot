@@ -1,26 +1,40 @@
 # discord-bot
 
 ## Introduction
+實作Discord機器人，發送訊息與用戶互動，接著提供第三方驗證流程，最後幫用戶設置新的角色權限，簡單幫NFT社群開發自己的功能機器人，提升社群價值
+
+## Function Implement
+- [x] 發送文字訊息
+- [x] 發送命令訊息
+- [x] 發送豐富訊息(多內容)
+- [x] 訊息附加按鈕
+- [x] 創建角色
+- [x] 賦予用戶角色
+- [x] 與Server溝通，監聽事件觸發
 
 ## Run
 
-編譯
+1. compile
 
 ```
 tsc src/bot.ts
 ```
 
-執行
+2. excute
 
 ```
 node src/bot.js
 ```
 
-一起
+or combine
 
 ```
 tsc src/bot.ts && node src/bot.js
 ```
+## Package
+- typescript
+- eris
+- express
 
 ## About
 
