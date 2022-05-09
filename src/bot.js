@@ -95,8 +95,7 @@ commandHandlerForCommandName.set("link-button", {
             userId = msg.author.id;
             mentionString = "<@".concat(userId, ">");
             if (!userId) {
-                // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'member'.
-                return [2 /*return*/, bot.createMessage(msg.channel.id, "\u627E\u4E0D\u5230\u6B64\u7528\u6236 ".concat(member))];
+                return [2 /*return*/, bot.createMessage(msg.channel.id, "\u627E\u4E0D\u5230\u6B64\u7528\u6236 ".concat(mentionString))];
             }
             return [2 /*return*/, bot.createMessage(msg.channel.id, {
                     content: "\u54C8\u56C9 ".concat(mentionString, "\uFF0C\u8ACB\u9EDE\u64CA\u4E0B\u65B9\u7684\u6309\u9215\u9032\u884C\u9A57\u8B49\uFF01"),

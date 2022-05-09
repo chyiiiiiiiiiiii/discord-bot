@@ -19,7 +19,7 @@ node src/bot.js
 一起
 
 ```
-tsc src/bot.ts & node src/bot.js
+tsc src/bot.ts && node src/bot.js
 ```
 
 ## About

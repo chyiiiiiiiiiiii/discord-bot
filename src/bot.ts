@@ -71,8 +71,7 @@ commandHandlerForCommandName.set("link-button", {
     const mentionString = `<@${userId}>`;
 
     if (!userId) {
-      // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'member'.
-      return bot.createMessage(msg.channel.id, `找不到此用戶 ${member}`);
+      return bot.createMessage(msg.channel.id, `找不到此用戶 ${mentionString}`);
     }
 
     return bot.createMessage(msg.channel.id, {
