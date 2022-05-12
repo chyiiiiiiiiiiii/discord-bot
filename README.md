@@ -17,19 +17,19 @@
 1. compile
 
 ```
-tsc src/bot.ts
+tsc
 ```
 
 2. excute
 
 ```
-node src/bot.js
+node dist/src/bot.js
 ```
 
 or combine
 
 ```
-tsc src/bot.ts && node src/bot.js
+tsc && node dist/src/bot.js
 ```
 ## Package
 - typescript
