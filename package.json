@@ -7,7 +7,7 @@
     "dev": "node ./src/bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Randall Schmidt",
+  "author": "Yii Chen",
   "license": "Unlicense",
   "dependencies": {
     "eris": "^0.16.1",
