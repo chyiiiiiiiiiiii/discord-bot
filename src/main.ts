@@ -1,6 +1,6 @@
 
-const Eris = require("eris");
-import { Constants, Guild, Role, Member, MessageContent, ComponentInteraction } from "eris";
+import Eris from "eris";
+import { Constants, Guild, Role, Member, MessageContent, ComponentInteraction, GuildAuditLog, TextChannel, Message } from "eris";
 import { BOT_TOKEN, BOT_OWNER_ID, VERIFY_CHANNEL_ID, LOG_CHANNEL_ID } from "../config";
 import webhookListener from "./webhook_listener.js";
 
@@ -96,7 +96,15 @@ commandHandlerForCommandName.set("link-button", {
 //----------------------------------------------------------------
 
 /// 顯示認證會員的按鈕訊息
-async function displayVerifiedLinkButton() {
+const displayVerifiedLinkButton = async (): Promise<void> => {
+  // 啟動時先將頻道內所有訊息都先刪除
+  const verifyChannel = bot.getChannel(VERIFY_CHANNEL_ID) as TextChannel
+  const messageList: Array<Message> = await verifyChannel.getMessages({limit: 1000});
+  messageList.forEach(async message => {
+    await verifyChannel.deleteMessage(message.id)
+  });
+
+  // 建立新的按鈕訊息
   const content: MessageContent = {
     embed: {
       color: 0xe780ea,
@@ -271,17 +279,33 @@ async function onDonation(
 
 //----------------------------------------------------------------
 
+bot.on("ready", async () => {
+  console.log("Connected and ready.");
+  displayVerifiedLinkButton();
+});
+
+bot.on("guildCreate", (guild: any) => {
+  console.log(`New guild: ${guild.name}`);
+});
+
 bot.on("messageCreate", async (msg: any) => {
   const content: string = msg.content;
   console.warn("Event - messageCreate -", content);
 
-  // 該機器人將只接受在公共頻道中發出的訊息
+  // 該機器人將只接受在DC社群中發出的訊息
   if (!msg.channel.guild) {
     // Check if the message was sent in a guild
     return bot.createMessage(
       msg.channel.id,
       "This command can only be run in a server."
     );
+  }
+
+  // 檢查是否為Webhook訊息
+  const isWebhookMessage = msg?.webhookID
+  if (isWebhookMessage) {
+
+    return;
   }
 
   // 頻道資訊
@@ -340,15 +364,8 @@ bot.on("interactionCreate", (interaction: any) => {
   }
 });
 
-bot.on("ready", async () => {
-  console.log("Connected and ready.");
-  displayVerifiedLinkButton();
-});
 bot.on("error", (err: any) => {
   console.warn(err);
-});
-bot.on("guildCreate", (guild: any) => {
-  console.log(`New guild: ${guild.name}`);
 });
 
 // 監聽Webhook Server的Socket event

@@ -2,9 +2,9 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "run bot in discord",
-  "main": "./src/bot.ts",
+  "main": "./src/main.ts",
   "scripts": {
-    "dev": "node ./src/bot.js",
+    "dev": "tsc && node ./dist/src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yii Chen",
